@@ -3,14 +3,14 @@ require 'rake'
 
 desc "create the database"
 task "db:create" do
-  puts "Creating file students.sqlite3 if it doesn't exist..."
-  touch 'db/students.sqlite3'
+  puts "Creating file users.sqlite3 if it doesn't exist..."
+  touch 'db/users.sqlite3'
 end
 
 desc "drop the database"
 task "db:drop" do
   puts "Deleting database..."
-  rm_f 'db/students.sqlite3'
+  rm_f 'db/users.sqlite3'
 end
 
 desc "migrate the database (options: VERSION=x, VERBOSE=false, SCOPE=blog)."
@@ -30,9 +30,4 @@ end
 desc 'Retrieves the current schema version number'
 task "db:version" do
   puts "Current version: #{ActiveRecord::Migrator.current_version}"
-end
-
-desc 'Start IRB with application environment loaded'
-task "console" do
-  exec "irb -r./config/application"
 end
