@@ -1,17 +1,16 @@
 require 'rake'
 
-require_relative 'config/application'
 
 desc "create the database"
 task "db:create" do
-  puts "Creating file #{DB_PATH} if it doesn't exist..."
-  touch DB_PATH
+  puts "Creating file students.sqlite3 if it doesn't exist..."
+  touch 'db/students.sqlite3'
 end
 
 desc "drop the database"
 task "db:drop" do
-  puts "Deleting #{DB_PATH}..."
-  rm_f DB_PATH
+  puts "Deleting database..."
+  rm_f 'db/students.sqlite3'
 end
 
 desc "migrate the database (options: VERSION=x, VERBOSE=false, SCOPE=blog)."
